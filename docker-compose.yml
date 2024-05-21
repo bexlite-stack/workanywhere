@@ -1,4 +1,4 @@
-version: "3.8"
+version: "3.0"
 
 services:
   app:
@@ -6,15 +6,9 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - type: volume
-        source: public_data
-        target: /app/public
-      - type: volume
-        source: db
-        target: /app/src/db
+      - public_data:/app/public
+      - db:/app/src/db
 
 volumes:
   public_data:
-    name: public_data
   db:
-    name: db
