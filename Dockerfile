@@ -17,4 +17,4 @@ ENV GOOGLE_CLIENT_SECRET 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
 ENV GOOGLE_REDIRECT_URI https://workanywhere.bexlite.dev/login/google/callback
 CMD ["bun", "src/index.ts"]
 
-EXPOSE 3000
+EXPOSE 4444
