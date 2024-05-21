@@ -1,7 +1,27 @@
 import { Elysia } from "elysia";
+import { createTable } from "./utils/createTable";
+import { html } from "@elysiajs/html";
+import staticPlugin from "@elysiajs/static";
+import { authRouter } from "./routes/authRouter";
+import { platformRouter } from "./routes/platformRouter";
 
-const app = new Elysia().get("/", () => "Hello Elysia").listen(3000);
+createTable();
 
-console.log(
-  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
-);
+const app = new Elysia()
+  // Plugins
+  .use(
+    staticPlugin({
+      headers: {
+        "Cache-Control": "public, max-age=31536000",
+        Expires: "Thu, 31 Dec 2037 23:55:55 GMT",
+      },
+    })
+  )
+  .use(html())
+  // Router
+  .use(authRouter)
+  .use(platformRouter)
+  // Port
+  .listen(3000);
+
+console.log("Betterwork app - running at 3000");
