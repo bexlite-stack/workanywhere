@@ -9,7 +9,12 @@ services:
       - type: volume
         source: public_data
         target: /app/public
+      - type: volume
+        source: db
+        target: /app/src/db
 
 volumes:
   public_data:
     name: public_data
+  db:
+    name: db
