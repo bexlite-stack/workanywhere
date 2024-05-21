@@ -4,7 +4,7 @@ services:
   app:
     build: .
     ports:
-      - "3000:3000"
+      - "4444:4444"
     volumes:
       - public_data:/app/public
       - db:/app/src/db

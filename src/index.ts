@@ -22,6 +22,6 @@ const app = new Elysia()
   .use(authRouter)
   .use(platformRouter)
   // Port
-  .listen(3000);
+  .listen(4444);
 
 console.log("Betterwork app - running at 3000");
